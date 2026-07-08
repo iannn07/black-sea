@@ -20,8 +20,8 @@ real source or is labeled assessment/assumption; anything unobtainable is a name
 
 ## Method 1 — `npx skills add` (skills.sh)
 
-The `npx skills` tool is the community **skills.sh** installer (the same one `mattpocock/skills`
-uses). Not an Anthropic-official tool, but widely used:
+The `npx skills` tool is the community **skills.sh** installer. Not an Anthropic-official tool, but
+widely used:
 
 ```bash
 npx skills@latest add iannn07/black-sea
@@ -113,7 +113,7 @@ NIGHTSTALKER §10 registry row) — Black Sea asks for your go first. `.docx`/`.
 
 ## What's inside
 
-```
+```text
 skills/black-sea/
 ├── SKILL.md                       # spine: invocation/branches, tiers, workflow (Done-when
 │                                  #   completion criteria), dossier template, failure modes
@@ -133,8 +133,8 @@ skills/black-sea/
 ## Design notes
 
 Harness conventions — per-step completion criteria, a leading-words glossary, and a failure-modes
-diagnostic — are benchmarked against [`mattpocock/skills`](https://github.com/mattpocock/skills).
-The dossier template is modeled on a declassified CIA OPLAN format.
+diagnostic — are what keep runs predictable. The dossier template is modeled on a declassified CIA
+OPLAN format.
 
 ## Scope & ethics
 
@@ -145,4 +145,4 @@ gated on legitimate purpose + lawful sources and confined to public capacity —
 
 ## License
 
-MIT © iannn07. (Add a `LICENSE` file to match `package.json`.)
+MIT © iannn07 — see [`LICENSE`](./LICENSE).

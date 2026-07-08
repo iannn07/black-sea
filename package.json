@@ -1,7 +1,20 @@
 {
   "name": "black-sea-skills",
-  "version": "2.1.0",
+  "version": "2.2.0",
+  "private": true,
   "description": "BLACK SEA — Special Investigation Unit / CID. All-source investigative analyst skill for Claude Code and other SKILL.md agents.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iannn07/black-sea"
+  },
   "license": "MIT",
-  "private": true
+  "scripts": {
+    "changeset": "changeset",
+    "version": "changeset version"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.7.0",
+    "@changesets/cli": "^2.30.0"
+  },
+  "packageManager": "npm@10.9.4"
 }

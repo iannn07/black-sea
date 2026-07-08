@@ -1,0 +1,10 @@
+# dependencies
+node_modules
+
+# local MCP / tool config
+.mcp*
+bash.exe*
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db

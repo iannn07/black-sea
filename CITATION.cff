@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use BLACK SEA in your work, please cite it as below."
+title: "BLACK SEA — Special Investigation Unit / CID"
+abstract: >-
+  An all-source investigative-analyst skill for Claude Code and other SKILL.md agents. Produces
+  standardized, confidence-graded intelligence dossiers on organizations and people — org & financial
+  forensics, competitor & market intelligence, and gated due-diligence person profiling — under a
+  Prime Directive that forbids fabrication.
+type: software
+authors:
+  - name: "Gunawan"
+version: "2.2.0"
+date-released: 2026-07-09
+license: MIT
+repository-code: "https://github.com/iannn07/black-sea"
+url: "https://github.com/iannn07/black-sea"
+keywords:
+  - osint
+  - investigation
+  - due-diligence
+  - financial-forensics
+  - competitor-intelligence
+  - dossier

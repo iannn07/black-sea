@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Report a security vulnerability
+    url: https://github.com/iannn07/black-sea/security/advisories/new
+    about: Report security issues privately via GitHub Security Advisories, not as a public issue.

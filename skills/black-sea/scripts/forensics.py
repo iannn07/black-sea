@@ -25,6 +25,14 @@ import json
 import math
 import sys
 
+# Emit UTF-8 regardless of the console's default code page (e.g. Windows cp1252),
+# so the report's arrows/dashes don't raise UnicodeEncodeError. (Python 3.7+.)
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8")
+    except AttributeError:
+        pass
+
 # ----------------------------- Beneish M-Score ------------------------------ #
 
 def beneish(t, p):
