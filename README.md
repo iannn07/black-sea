@@ -1,13 +1,16 @@
-# BLACK SEA — Special Investigation Unit / CID (Claude Code)
+# BLACK SEA — Special Investigation Unit / CID
 
 All-source investigative analyst for Claude Code. Org & financial-fraud forensics, competitor/market
 intelligence, and due-diligence person-profiling — producing standardized, confidence-graded
 intelligence dossiers, delivered into your Obsidian vault.
 
-Repo layout follows the `mattpocock/skills` convention (`skills/<name>/` + `.claude-plugin/`), so one
-tree installs four ways: `npx skills add`, `/plugin`, the bundled installer, or a manual copy.
+**Callsign BLACK SEA.** Model-invoked. Prime Directive: *never fabricate* — every finding traces to a
+real source or is labeled assessment/assumption; anything unobtainable is a named gap.
+
+> **Quick install:** `npx skills@latest add iannn07/black-sea`
 
 ## Requirements
+
 - Claude Code (recent version — plugin/skills support).
 - `python3` on PATH (for the `forensics.py` calculator; standard library only, no pip installs).
 - **Obsidian delivery (optional):** an `mcp-obsidian` server configured in Claude Code + the Obsidian
@@ -17,44 +20,45 @@ tree installs four ways: `npx skills add`, `/plugin`, the bundled installer, or 
 
 ## Method 1 — `npx skills add` (skills.sh)
 
-The `npx skills` tool you had in mind is real — it's the community **skills.sh** installer (the same
-one `mattpocock/skills` uses). It is not an Anthropic-official tool, but it's widely used. Push this
-repo to GitHub, then:
+The `npx skills` tool is the community **skills.sh** installer (the same one `mattpocock/skills`
+uses). Not an Anthropic-official tool, but widely used:
 
 ```bash
-npx skills@latest add <your-gh-username>/black-sea
+npx skills@latest add iannn07/black-sea
 ```
 
 Pick the skill and the agent(s) to install onto. Skills run scripts on your machine — inspect
 `skills/black-sea/scripts/forensics.py` first (stdlib only, no network calls).
 
-## Method 2 — Bundled installer (no hosting needed)
+## Method 2 — Clone + bundled installer
 
 ```bash
-tar -xzf black-sea-claude-code.tar.gz
-./black-sea-cc/install.sh            # → ~/.claude/skills/black-sea   (command: /black-sea)
-./black-sea-cc/install.sh --project  # → ./.claude/skills/black-sea   (commit for your team)
+git clone https://github.com/iannn07/black-sea.git
+cd black-sea
+./install.sh            # → ~/.claude/skills/black-sea   (command: /black-sea)
+./install.sh --project  # → ./.claude/skills/black-sea   (commit for your team)
 ```
 
-## Method 3 — Manual copy / drop-in
+## Method 3 — Manual copy
 
 ```bash
-cp -r black-sea-cc/skills/black-sea ~/.claude/skills/black-sea
-# or from the zip:
-unzip black-sea.skill -d ~/.claude/skills/
+git clone https://github.com/iannn07/black-sea.git
+cp -r black-sea/skills/black-sea ~/.claude/skills/black-sea   # personal (all projects)
+# or, project-scoped:
+cp -r black-sea/skills/black-sea .claude/skills/black-sea
 ```
 
 ## Method 4 — Claude Code plugin marketplace
 
-Command becomes `/black-sea:black-sea`. Push this repo to GitHub, then in Claude Code:
+Command becomes `/black-sea:black-sea`. In Claude Code:
 
 ```text
-/plugin marketplace add <your-gh-username>/black-sea
+/plugin marketplace add iannn07/black-sea
 /plugin install black-sea@black-sea
 /reload-plugins
 ```
 
-A local checkout also works: `/plugin marketplace add /absolute/path/to/black-sea-cc`.
+A local checkout also works: `/plugin marketplace add /absolute/path/to/black-sea`.
 
 ---
 
@@ -66,12 +70,24 @@ A local checkout also works: `/plugin marketplace add /absolute/path/to/black-se
 ```
 
 Task it:
+
 - `Black Sea — full package on Meridian Logistics. About to sign a 3-yr contract; are they legit?`
 - `Black Sea, FLASH read on our main cold-chain competitor — threat over next 18 months.`
 - `Black Sea: due diligence on Daniel Okoro, incoming CFO. Is he clean?`
 
 It works your files first and computes real forensic indicators via `scripts/forensics.py` (Beneish
-M-Score, Altman Z/Z'', Benford, ratios).
+M-Score, Altman Z/Z'', Benford, ratios). Try the calculator standalone:
+
+```bash
+python3 skills/black-sea/scripts/forensics.py --demo
+```
+
+## Output tiers
+
+- **FLASH** — compressed single-screen read: BLUF, 3–6 confidence-graded findings, top gaps.
+- **FULL** — the complete standardized dossier (CIA-OPLAN-modeled template), all annexes.
+
+Both keep BLUF, confidence grades, sourcing, and an honest gaps line. FLASH is *shorter*, never *sloppier*.
 
 ## Obsidian delivery
 
@@ -99,7 +115,7 @@ NIGHTSTALKER §10 registry row) — Black Sea asks for your go first. `.docx`/`.
 
 ```
 skills/black-sea/
-├── SKILL.md                       # spine: invocation/branches, tiers, workflow (with Done-when
+├── SKILL.md                       # spine: invocation/branches, tiers, workflow (Done-when
 │                                  #   completion criteria), dossier template, failure modes
 ├── references/
 │   ├── glossary.md                # leading words — the vocabulary that keeps runs predictable
@@ -113,3 +129,20 @@ skills/black-sea/
 └── scripts/
     └── forensics.py               # Beneish M / Altman Z,Z'' / Benford / ratios (stdlib only)
 ```
+
+## Design notes
+
+Harness conventions — per-step completion criteria, a leading-words glossary, and a failure-modes
+diagnostic — are benchmarked against [`mattpocock/skills`](https://github.com/mattpocock/skills).
+The dossier template is modeled on a declassified CIA OPLAN format.
+
+## Scope & ethics
+
+Open-source intelligence only. **In scope:** public registries, court/regulatory records, document &
+image forensics, link analysis, breach-*exposure* flagging. **Out of scope:** dark-web crawling,
+trafficking in stolen data, and dossiers on private individuals from breached PII. Person-profiling is
+gated on legitimate purpose + lawful sources and confined to public capacity — not a surveillance tool.
+
+## License
+
+MIT © iannn07. (Add a `LICENSE` file to match `package.json`.)
