@@ -1,0 +1,7 @@
+{
+  "name": "black-sea-skills",
+  "version": "2.1.0",
+  "description": "BLACK SEA — Special Investigation Unit / CID. All-source investigative analyst skill for Claude Code and other SKILL.md agents.",
+  "license": "MIT",
+  "private": true
+}

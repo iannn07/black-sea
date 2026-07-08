@@ -1,0 +1,7 @@
+{
+  "name": "black-sea",
+  "description": "Special Investigation Unit / CID (callsign BLACK SEA). All-source investigative analyst: org & financial-fraud forensics, competitor/market intelligence, due-diligence person-profiling. Produces standardized, confidence-graded dossiers and delivers them into the operator's Obsidian vault.",
+  "version": "2.1.0",
+  "author": { "name": "Gunawan" },
+  "keywords": ["osint", "investigation", "due-diligence", "financial-forensics", "competitor-intel", "dossier", "black-sea"]
+}
