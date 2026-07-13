@@ -23,6 +23,14 @@ written down as a named gap rather than filled in.
 - **GRASSHOPPER** — link / entity / network analysis.
 - **PARLEY** — lawful source elicitation (modelled on John Nolan's legal-CI method).
 
+## Also in this plugin
+
+- **BULKHEAD** — a distinct skill (not part of the investigation unit) that designs access-control /
+  RBAC / authorization systems from intelligence-agency security doctrine — classification and
+  need-to-know, compartmentation, least privilege, separation of duties, role hierarchy — grounded in
+  published models (NIST RBAC/ABAC, Bell-LaPadula, Biba, Clark-Wilson). It produces a *design*, not a
+  dossier.
+
 ## When to reach for it
 
 - **Invocation.** Type `/black-sea` (or `/black-sea:black-sea` under the plugin), or the agent reaches

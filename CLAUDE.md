@@ -16,6 +16,9 @@ confidence-graded intelligence dossiers on organizations and people.
   compliant with the vault standard and the NIGHTSTALKER / DAGGER ONE protocols.
 - The **Prime Directive** governs everything: never fabricate. Findings trace to real sources or are
   labeled assessment/assumption; anything unobtainable is a named *gap*.
+- The repo also ships **BULKHEAD** (`skills/bulkhead/`), a **distinct** access-control system-design
+  skill (RBAC / authorization from agency security doctrine). It produces a *design*, not a dossier —
+  a different job from the investigation unit; keep the two concerns separate when editing.
 
 When editing a skill, follow the discipline in `skills/black-sea/references/glossary.md` (leading
 words) and keep each workflow step's **Done when** criterion checkable and, where marked, exhaustive.
@@ -38,6 +41,9 @@ skills/harbormaster/      # HARBORMASTER — person profiling (gated)
 skills/horizon/           # HORIZON — competitor & market intel
 skills/grasshopper/       # GRASSHOPPER — link / network analysis
 skills/parley/            # PARLEY — lawful source elicitation
+skills/bulkhead/          # BULKHEAD — access-control system design (a DISTINCT job, not investigation)
+  SKILL.md
+  references/             # access-control-doctrine (RBAC, Bell-LaPadula, need-to-know, ...)
 docs/black-sea.md         # human-facing overview page
 .changeset/               # changesets versioning (config + pending entries)
 CLAUDE.md · AGENTS.md     # agent instructions (this file is the fuller copy)

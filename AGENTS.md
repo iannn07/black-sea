@@ -10,7 +10,11 @@ The **BLACK SEA** unit (Special Investigation Unit / CID) — a multi-skill plug
 shared doctrine core + named operatives) that produces standardized, confidence-graded intelligence
 dossiers on organizations and people. The **orchestrator** lives at `skills/black-sea/`; the
 **WAYPOINT** front door at `skills/waypoint/`. The orchestrator frames a case via WAYPOINT, then
-dispatches to operatives.
+dispatches to operatives (DRY DOCK, PLIMSOLL, HARBORMASTER, HORIZON, GRASSHOPPER, PARLEY).
+
+The repo also ships **BULKHEAD** (`skills/bulkhead/`) — a **distinct** access-control system-design
+skill (RBAC / authorization from agency security doctrine). It produces a design, not a dossier; keep
+it separate from the investigation unit.
 
 ## Non-negotiables
 

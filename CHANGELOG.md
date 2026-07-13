@@ -25,6 +25,11 @@
   `elicitation.md` references and an `operative-contract.md`, and extends `forensics.py` with a
   time-series mode (ratio trend, rolling Beneish per period pair, receivables-vs-sales divergence).
   BLACK SEA dispatches to these operatives per the approved Collection Plan.
+- Add **BULKHEAD**, a distinct **access-control system-design** skill (not part of the investigation
+  unit): designs RBAC / authorization models from intelligence-agency security doctrine —
+  classification and need-to-know, compartmentation, least privilege, separation of duties, and role
+  hierarchy — grounded in published models (NIST RBAC/ABAC, Bell-LaPadula, Biba, Clark-Wilson,
+  Saltzer & Schroeder). It produces a design, not a dossier.
 
 ## 2.2.0
 
