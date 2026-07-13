@@ -28,10 +28,16 @@ Multi-skill plugin (the BLACK SEA unit). Layout:
 skills/black-sea/         # the ORCHESTRATOR + shared doctrine core
   SKILL.md                # the spine — under ~500 lines
   references/             # lane files + shared cores (collection, analytic-tradecraft,
-                          #   operative-contract), reached by context pointers
+                          #   operative-contract, financial-backtesting, network-analysis,
+                          #   elicitation, ...), reached by context pointers
   scripts/forensics.py    # financial-forensics calculator (stdlib only, no network)
 skills/waypoint/          # WAYPOINT — the front-door (Frame & Confirm) operative
-  SKILL.md
+skills/dry-dock/          # DRY DOCK — ownership / shell tracing
+skills/plimsoll/          # PLIMSOLL — statement forensics + back-testing
+skills/harbormaster/      # HARBORMASTER — person profiling (gated)
+skills/horizon/           # HORIZON — competitor & market intel
+skills/grasshopper/       # GRASSHOPPER — link / network analysis
+skills/parley/            # PARLEY — lawful source elicitation
 docs/black-sea.md         # human-facing overview page
 .changeset/               # changesets versioning (config + pending entries)
 CLAUDE.md · AGENTS.md     # agent instructions (this file is the fuller copy)

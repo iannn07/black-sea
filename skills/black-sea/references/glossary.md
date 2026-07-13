@@ -31,9 +31,8 @@ words rather than restating their meaning; that's what makes them earn their pla
   dispatches to operatives and assembles + delivers the dossier.
 - **operative** — a specialist the orchestrator dispatches to: **DRY DOCK** (ownership/shell),
   **PLIMSOLL** (statements/back-test), **HARBORMASTER** (person), **HORIZON** (competitor/market),
-  **GRASSHOPPER** (link/network), **PARLEY** (source elicitation). The three **lanes** are graduating
-  into operatives; until each has its own skill, a lane is reached by a context pointer to its
-  reference file.
+  **GRASSHOPPER** (link/network), **PARLEY** (source elicitation). Each is its own skill; the **lanes**
+  are the reference files an operative reads as its method.
 - **WAYPOINT** — the front-door operative: interviews the operator, converts the tasking into an
   intelligence question, decomposes it into EEI, and emits the Collection Plan. Sets the heading; does
   not collect.

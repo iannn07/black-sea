@@ -14,9 +14,17 @@
   analytic-tradecraft core with an "anticipating what to collect is analysis, not fabrication"
   carve-out, and an **operative contract** (the Collection Plan and the findings packet) that future
   operatives plug into. The orchestrator (`skills/black-sea/`) now dispatches to operatives; the three
-  lanes remain reference files until each graduates into its own skill. Breaking: the unit runs
-  WAYPOINT first (no more collecting straight from the raw ask), and the repository is a multi-skill
-  plugin rather than a single skill.
+  lanes remain reference files the operatives read as their method. Breaking: the unit runs WAYPOINT
+  first (no more collecting straight from the raw ask), and the repository is a multi-skill plugin
+  rather than a single skill.
+- Populate the operative roster: **DRY DOCK** (corporate structure & beneficial-ownership tracing),
+  **PLIMSOLL** (statement forensics + multi-period back-testing), **HARBORMASTER** (person profiling
+  behind a legitimate-purpose gate), **HORIZON** (competitor & market intel), **GRASSHOPPER**
+  (link / entity / network analysis), and **PARLEY** (lawful source elicitation, modelled on John
+  Nolan's legal-CI method). Adds the `financial-backtesting.md`, `network-analysis.md`, and
+  `elicitation.md` references and an `operative-contract.md`, and extends `forensics.py` with a
+  time-series mode (ratio trend, rolling Beneish per period pair, receivables-vs-sales divergence).
+  BLACK SEA dispatches to these operatives per the approved Collection Plan.
 
 ## 2.2.0
 

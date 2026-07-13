@@ -8,6 +8,8 @@ Computes, from user-provided figures ONLY (never invented):
   - Altman Z-Score (original, public manufacturer) and Z'' (private / non-manufacturer / EM)
   - Benford's Law first-digit test (chi-square + Nigrini MAD)
   - Core ratios + YoY trend
+  - Time-series back-test (PLIMSOLL): ratio trend, rolling Beneish across each period pair,
+    and the receivables-vs-sales growth divergence across >=2 periods (oldest -> newest)
 
 These are INDICATORS THAT DIRECT COLLECTION, not verdicts. A high M-Score or low Z is a reason to
 pull the ledgers, not a finding of fraud. Every output must land in Annex C with its inputs and the
@@ -118,6 +120,38 @@ def ratios(d):
     if g("total_liabilities") and g("book_value_equity"): r["debt_to_equity"] = round(d["total_liabilities"]/d["book_value_equity"], 2)
     return r or {"note": "no ratio inputs provided"}
 
+# --------------------- Time-series back-test (PLIMSOLL) --------------------- #
+
+def series(periods):
+    """periods = list of {label, ...figures}, ORDERED oldest -> newest.
+    Trends the key ratios, runs Beneish on each consecutive pair, and checks the
+    receivables-vs-sales growth divergence (the channel-stuffing / premature-recognition tell)."""
+    if not periods or len(periods) < 2:
+        return ["Series skipped — need >=2 periods, ordered oldest -> newest"]
+    labels = [p.get("label", f"P{i+1}") for i, p in enumerate(periods)]
+    out = ["Periods (oldest -> newest): " + " · ".join(labels)]
+    trend_keys = ["DSO_days", "gross_margin_%", "net_margin_%", "current_ratio"]
+    for k in trend_keys:
+        row = [ratios(p).get(k) for p in periods]
+        if any(v is not None for v in row):
+            out.append(f"  {k:15}: " + "  ".join("na" if v is None else str(v) for v in row))
+    for i in range(1, len(periods)):
+        M, _comps, notes = beneish(periods[i], periods[i-1])
+        tag = f"{labels[i-1]} -> {labels[i]}"
+        if M is None:
+            out.append(f"  Beneish {tag}: {notes[0]}")
+        else:
+            out.append(f"  Beneish {tag}: M={M:.3f} [{'FLAG >-1.78' if M > -1.78 else 'ok'}]")
+    if all(p.get("sales") and p.get("receivables") for p in periods):
+        first, last = periods[0], periods[-1]
+        sg = (last["sales"]/first["sales"] - 1) * 100
+        rg = (last["receivables"]/first["receivables"] - 1) * 100
+        gap = rg - sg
+        tell = ("receivables outrunning sales — premature-recognition / channel-stuffing tell; pull the ageing schedule"
+                if gap > 15 else "receivables broadly track sales")
+        out.append(f"  Growth: sales {sg:+.0f}% vs receivables {rg:+.0f}% (delta {gap:+.0f}pp) — {tell}")
+    return out
+
 # ------------------------------- Runner ------------------------------------- #
 
 def run(payload):
@@ -139,6 +173,9 @@ def run(payload):
     if "ratios" in payload:
         print("\n[ RATIOS ]")
         for k, v in ratios(payload["ratios"]).items(): print(f"  {k}: {v}")
+    if "series" in payload:
+        print("\n[ TIME-SERIES BACK-TEST ]")
+        for ln in series(payload["series"]): print("  " + ln)
     print("\n" + "-"*66)
     print("Flag any ESTIMATED input in Annex C. Indicators direct collection; they do not convict.")
 
@@ -154,7 +191,18 @@ DEMO = {
   "altman": {"working_capital": 90, "retained_earnings": 40, "ebit": 20, "total_assets": 300,
              "book_value_equity": 120, "total_liabilities": 180},
   "ratios": {"current_assets": 160, "current_liab": 70, "receivables": 118, "sales": 196,
-             "cogs": 150, "net_income": 14, "total_liabilities": 180, "book_value_equity": 120}
+             "cogs": 150, "net_income": 14, "total_liabilities": 180, "book_value_equity": 120},
+  "series": [
+    {"label": "FY1", "receivables": 25, "sales": 100, "cogs": 74, "current_assets": 100, "ppe": 80,
+     "total_assets": 210, "depreciation": 7, "sga": 14, "net_income": 9, "cash_from_ops": 11,
+     "current_liab": 48, "ltd": 30},
+    {"label": "FY2", "receivables": 45, "sales": 140, "cogs": 104, "current_assets": 120, "ppe": 85,
+     "total_assets": 250, "depreciation": 8, "sga": 18, "net_income": 11, "cash_from_ops": 10,
+     "current_liab": 55, "ltd": 35},
+    {"label": "FY3", "receivables": 118, "sales": 196, "cogs": 150, "current_assets": 160, "ppe": 90,
+     "total_assets": 300, "depreciation": 9, "sga": 22, "net_income": 14, "cash_from_ops": 3,
+     "current_liab": 70, "ltd": 40}
+  ]
 }
 
 if __name__ == "__main__":

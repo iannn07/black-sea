@@ -7,11 +7,21 @@ person — and it produces a standardized, confidence-graded intelligence dossie
 redoing the work. Every case opens at the **WAYPOINT** front door, which interviews you and turns the
 ask into an operator-approved **Collection Plan** — decomposing it into specified, implied, and
 *adjacent* requirements (the adjacent ones you wouldn't think to ask for). The orchestrator then
-dispatches to operatives across the investigation lanes (org & financial forensics, competitor &
-market intel, gated person profiling, link/network analysis) over the shared doctrine core, and
-delivers into your Obsidian vault. Its defining constraint is the **Prime Directive**: it never
-fabricates — every finding traces to a real source or is labeled an assessment or assumption, and
-anything it cannot lawfully obtain is written down as a named gap rather than filled in.
+dispatches to named **operatives** over the shared doctrine core, and delivers into your Obsidian
+vault. Its defining constraint is the **Prime Directive**: it never fabricates — every finding traces
+to a real source or is labeled an assessment or assumption, and anything it cannot lawfully obtain is
+written down as a named gap rather than filled in.
+
+## The unit
+
+- **BLACK SEA** — the orchestrator: frames the case, dispatches operatives, assembles and delivers the dossier.
+- **WAYPOINT** — the front door: interviews you and emits the operator-approved Collection Plan.
+- **DRY DOCK** — corporate structure & beneficial-ownership / shell tracing.
+- **PLIMSOLL** — financial-statement forensics + multi-period back-testing (`forensics.py`).
+- **HARBORMASTER** — person profiling & due diligence, behind a legitimate-purpose gate.
+- **HORIZON** — competitor & market intelligence.
+- **GRASSHOPPER** — link / entity / network analysis.
+- **PARLEY** — lawful source elicitation (modelled on John Nolan's legal-CI method).
 
 ## When to reach for it
 

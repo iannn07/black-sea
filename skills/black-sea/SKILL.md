@@ -118,8 +118,9 @@ Both tiers keep BLUF, confidence grades, real sourcing, and an honest gaps line.
 BLACK SEA is the **orchestrator**: it frames the case (Phase 1 / WAYPOINT), then **dispatches** the
 collection and analysis (steps 3–4) to the operatives the approved plan routes to — each returns a
 **findings packet** (`references/operative-contract.md`) that BLACK SEA assembles into the dossier
-(step 5). Until an operative has graduated into its own skill, "dispatch" means read that lane's
-reference file and do the work here.
+(step 5). "Dispatch" means **invoke the operative skill** (DRY DOCK · PLIMSOLL · HORIZON ·
+HARBORMASTER · GRASSHOPPER · PARLEY); if a skill isn't available in the session, read that operative's
+method reference and do the work here.
 
 ### 1. Frame & Confirm — delegate to WAYPOINT
 
@@ -137,20 +138,23 @@ and the EEI table (specified/implied/adjacent, each routed to an operative) all 
 
 ### 2. Route to operative(s)
 
-A case may use several. Route each EEI in the approved plan to its operative and read that lane's
-reference file before working it (until the operative graduates into its own skill):
+A case may use several. Route each EEI in the approved plan to its operative — invoke that operative's
+skill (or read its method reference if the skill isn't available):
 
-| Signal | Lane / Operative | Reference (read until graduated) |
+| Signal | Operative (invoke) | Method reference |
 | --- | --- | --- |
-| company, is-it-legit, ownership, fraud, financials, filings, "follow the money" | Org & Financial Forensics — **DRY DOCK** (ownership/shell) · **PLIMSOLL** (statements/back-test) | `references/org-financial.md` |
-| competitor, market, positioning, pricing, threat to us, moat | Competitor & Market Intel — **HORIZON** | `references/competitor-market.md` |
-| person, who is, background, principal, counterparty individual, due diligence on a name | Person Profiling — **HARBORMASTER** | `references/person-profiling.md` |
-| connections, "how are these linked", shell-network, entity resolution | Link / Network Analysis — **GRASSHOPPER** | `references/collection.md` (link-analysis section) |
+| who really owns, is-it-legit, ownership, shell, UBO, corporate structure | **DRY DOCK** | `references/org-financial.md` (§A) |
+| filings, financials, fraud, earnings quality, "follow the money", back-test | **PLIMSOLL** | `references/org-financial.md` (§B–D) · `references/financial-backtesting.md` |
+| competitor, market, positioning, pricing, moat, threat to us | **HORIZON** | `references/competitor-market.md` |
+| person, who is, background, principal, counterparty, due diligence on a name | **HARBORMASTER** | `references/person-profiling.md` |
+| connections, "how are these linked", shell-network, entity resolution | **GRASSHOPPER** | `references/network-analysis.md` |
+| who could we ask, expert / reference interviews, source elicitation | **PARLEY** | `references/elicitation.md` |
 
-Two operatives have no lane file yet: **GRASSHOPPER** (link/network work lives in `collection.md` for
-now) and **PARLEY** (legitimate source elicitation) — both graduate in later sub-projects.
+Each operative carries the doctrine floor and returns a **findings packet** per
+`references/operative-contract.md`. Operatives hand dense work to each other (e.g. DRY DOCK → GRASSHOPPER
+for large webs; HORIZON → PARLEY for expert interviews).
 
-Every lane draws on the two shared cores:
+Every operative draws on the two shared cores:
 
 - **Collection** — how to collect all-source and run metadata/image forensics: `references/collection.md`
 - **Analytic tradecraft** — how to grade sources, test hypotheses, and rate confidence:

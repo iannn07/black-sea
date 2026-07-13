@@ -26,9 +26,9 @@ _Avoid_: prompt, ask, request
 
 **Lane** (graduating into **operatives**):
 One of the three investigation branches — **org & financial forensics**, **competitor & market
-intel**, **person profiling** — each reached by a context pointer to its reference file. A case may
-run several. Lanes are graduating into named **operatives**; until each has its own skill, the lane
-*is* its reference file.
+intel**, **person profiling**, plus link/network — each reached by a context pointer to its reference
+file. A case may run several. Lanes have graduated into named **operatives**, which read the lane
+files as their method.
 _Avoid_: mode, track, module
 
 **Shared core**:
