@@ -1,8 +1,9 @@
 # Contributing to BLACK SEA
 
-Thanks for helping sharpen the unit. BLACK SEA is one skill — an all-source investigative analyst that
-produces confidence-graded dossiers — and every contribution has to keep the discipline that makes its
-output trustworthy. Read this before opening a PR.
+Thanks for helping sharpen the unit. BLACK SEA is a multi-skill plugin — an orchestrator, a shared
+doctrine core, and named operatives that together produce confidence-graded dossiers — and every
+contribution has to keep the discipline that makes its output trustworthy. Read this before opening a
+PR.
 
 ## The compliance guard (non-negotiable)
 

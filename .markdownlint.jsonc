@@ -3,5 +3,11 @@
   "MD013": false,
   // CHANGELOG.md follows the changesets format, which repeats "### Minor Changes" /
   // "### Patch Changes" under each version heading. Allow duplicate headings that are not siblings.
-  "MD024": { "siblings_only": true }
+  "MD024": { "siblings_only": true },
+  // The vocabulary files (CONTEXT.md, glossary) use underscore emphasis for the "_Avoid_" labels
+  // while prose uses asterisks — a deliberate label-vs-prose distinction. Don't force one style.
+  "MD049": false,
+  // The dossier template renders bold section labels (PART I, PART II, ANNEXES) as intentional
+  // case-file styling, not as markdown headings. Allow emphasis-as-heading there.
+  "MD036": false
 }

@@ -16,7 +16,7 @@ BLACK SEA is a single skill released from `main`. Fixes land on the latest relea
 no long-term-support branch.
 
 | Version | Supported |
-|---|---|
+| --- | --- |
 | 2.2.x | ✅ |
 | < 2.2 | ❌ (upgrade to latest) |
 

@@ -1,44 +1,64 @@
 # CLAUDE.md — BLACK SEA repo
 
-This repository ships one skill: **BLACK SEA** (Special Investigation Unit / CID), an all-source
-investigative analyst that produces standardized, confidence-graded intelligence dossiers on
-organizations and people.
+This repository ships the **BLACK SEA** unit (Special Investigation Unit / CID): a multi-skill plugin
+— an orchestrator + a shared doctrine core + named operatives — that produces standardized,
+confidence-graded intelligence dossiers on organizations and people.
 
-- The skill lives at `skills/black-sea/` (`SKILL.md` + `references/` + `scripts/`).
-- It is **model-invoked** (fires on investigation intent or the callsign "Black Sea") and acts as the
-  router for a case; lanes and delivery are branches reached by context pointers into `references/`.
+- The **orchestrator** lives at `skills/black-sea/` (`SKILL.md` + `references/` + `scripts/`). It is
+  **model-invoked** (fires on investigation intent or the callsign "Black Sea"): it runs the
+  **WAYPOINT** front door to frame the case, then dispatches to operatives.
+- **WAYPOINT** (`skills/waypoint/`) is the front-door operative — it interviews the operator,
+  decomposes the tasking into specified/implied/adjacent **EEI**, and emits an operator-approved
+  **Collection Plan** before any collection. The three lanes (org-financial / competitor-market /
+  person) are graduating into named operatives; until each has its own skill, a lane is reached by a
+  context pointer into `skills/black-sea/references/`.
 - Default dossier delivery is the operator's Obsidian vault at `Private/Black Sea/[CODENAME]/`,
   compliant with the vault standard and the NIGHTSTALKER / DAGGER ONE protocols.
 - The **Prime Directive** governs everything: never fabricate. Findings trace to real sources or are
   labeled assessment/assumption; anything unobtainable is a named *gap*.
+- The repo also ships **BULKHEAD** (`skills/bulkhead/`), a **distinct** access-control system-design
+  skill (RBAC / authorization from agency security doctrine). It produces a *design*, not a dossier —
+  a different job from the investigation unit; keep the two concerns separate when editing.
 
-When editing the skill, follow the discipline in `skills/black-sea/references/glossary.md` (leading
+When editing a skill, follow the discipline in `skills/black-sea/references/glossary.md` (leading
 words) and keep each workflow step's **Done when** criterion checkable and, where marked, exhaustive.
 
 ## Repository structure & conventions
 
-Single-skill repo (not a multi-skill monorepo). Layout:
+Multi-skill plugin (the BLACK SEA unit). Layout:
 
-```
-skills/black-sea/
-  SKILL.md              # the spine — under ~500 lines
-  references/           # lane files + shared cores, reached by context pointers
-  scripts/forensics.py  # financial-forensics calculator (stdlib only, no network)
-docs/black-sea.md       # human-facing overview page
-.changeset/             # changesets versioning (config + pending entries)
-CLAUDE.md · AGENTS.md   # agent instructions (this file is the fuller copy)
-CONTEXT.md              # the ubiquitous language (leading words, entities)
-CONTRIBUTING.md         # the compliance guard + edit/versioning workflow
-CHANGELOG.md            # changesets-format history
+```text
+skills/black-sea/         # the ORCHESTRATOR + shared doctrine core
+  SKILL.md                # the spine — under ~500 lines
+  references/             # lane files + shared cores (collection, analytic-tradecraft,
+                          #   operative-contract, financial-backtesting, network-analysis,
+                          #   elicitation, ...), reached by context pointers
+  scripts/forensics.py    # financial-forensics calculator (stdlib only, no network)
+skills/waypoint/          # WAYPOINT — the front-door (Frame & Confirm) operative
+skills/dry-dock/          # DRY DOCK — ownership / shell tracing
+skills/plimsoll/          # PLIMSOLL — statement forensics + back-testing
+skills/harbormaster/      # HARBORMASTER — person profiling (gated)
+skills/horizon/           # HORIZON — competitor & market intel
+skills/grasshopper/       # GRASSHOPPER — link / network analysis
+skills/parley/            # PARLEY — lawful source elicitation
+skills/bulkhead/          # BULKHEAD — access-control system design (a DISTINCT job, not investigation)
+  SKILL.md
+  references/             # access-control-doctrine (RBAC, Bell-LaPadula, need-to-know, ...)
+docs/black-sea.md         # human-facing overview page
+.changeset/               # changesets versioning (config + pending entries)
+CLAUDE.md · AGENTS.md     # agent instructions (this file is the fuller copy)
+CONTEXT.md                # the ubiquitous language (leading words, entities)
+CONTRIBUTING.md           # the compliance guard + edit/versioning workflow
+CHANGELOG.md              # changesets-format history
 SECURITY.md · CODE_OF_CONDUCT.md · CITATION.cff · LICENSE · .editorconfig
-.github/                # issue + PR templates
+.github/                  # issue + PR templates
 ```
 
 Conventions:
 
-- **One skill, no buckets.** This is a single-skill repo, so there is no `engineering/` /
-  `productivity/` bucketing and no `.agents/` tree — agent conventions live in `CLAUDE.md` +
-  `AGENTS.md`.
+- **One unit, no buckets.** This is a single-plugin repo (the BLACK SEA unit), so there is no
+  `engineering/` / `productivity/` bucketing and no `.agents/` tree — agent conventions live in
+  `CLAUDE.md` + `AGENTS.md`. New operatives are added as `skills/<callsign>/`.
 - **Ubiquitous language.** Leading words are defined in `CONTEXT.md` and mirrored in
   `skills/black-sea/references/glossary.md`; define a new one in both before using it.
 - **Versioning via changesets.** For any skill change, run `npx changeset` to add an entry, then

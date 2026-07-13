@@ -2,13 +2,34 @@
 
 ## What it does
 
-BLACK SEA is an all-source investigative-analyst skill: give it a target — an organization or a person
-— and it produces a standardized, confidence-graded intelligence dossier you can act on without
-redoing the work. It runs one of three lanes (org & financial forensics, competitor & market intel, or
-gated person profiling) over two shared cores (collection and analytic tradecraft), and delivers into
-your Obsidian vault. Its defining constraint is the **Prime Directive**: it never fabricates — every
-finding traces to a real source or is labeled an assessment or assumption, and anything it cannot
-lawfully obtain is written down as a named gap rather than filled in.
+BLACK SEA is an all-source investigative-analyst **unit**: give it a target — an organization or a
+person — and it produces a standardized, confidence-graded intelligence dossier you can act on without
+redoing the work. Every case opens at the **WAYPOINT** front door, which interviews you and turns the
+ask into an operator-approved **Collection Plan** — decomposing it into specified, implied, and
+*adjacent* requirements (the adjacent ones you wouldn't think to ask for). The orchestrator then
+dispatches to named **operatives** over the shared doctrine core, and delivers into your Obsidian
+vault. Its defining constraint is the **Prime Directive**: it never fabricates — every finding traces
+to a real source or is labeled an assessment or assumption, and anything it cannot lawfully obtain is
+written down as a named gap rather than filled in.
+
+## The unit
+
+- **BLACK SEA** — the orchestrator: frames the case, dispatches operatives, assembles and delivers the dossier.
+- **WAYPOINT** — the front door: interviews you and emits the operator-approved Collection Plan.
+- **DRY DOCK** — corporate structure & beneficial-ownership / shell tracing.
+- **PLIMSOLL** — financial-statement forensics + multi-period back-testing (`forensics.py`).
+- **HARBORMASTER** — person profiling & due diligence, behind a legitimate-purpose gate.
+- **HORIZON** — competitor & market intelligence.
+- **GRASSHOPPER** — link / entity / network analysis.
+- **PARLEY** — lawful source elicitation (modelled on John Nolan's legal-CI method).
+
+## Also in this plugin
+
+- **BULKHEAD** — a distinct skill (not part of the investigation unit) that designs access-control /
+  RBAC / authorization systems from intelligence-agency security doctrine — classification and
+  need-to-know, compartmentation, least privilege, separation of duties, role hierarchy — grounded in
+  published models (NIST RBAC/ABAC, Bell-LaPadula, Biba, Clark-Wilson). It produces a *design*, not a
+  dossier.
 
 ## When to reach for it
 
@@ -42,6 +63,8 @@ honest gaps line.
 
 ## It's working if
 
+- The case opened with a **WAYPOINT Collection Plan you approved** — including *adjacent* requirements
+  you never named — before any collection ran.
 - Every key finding is graded (High / Moderate / Low) and points at a source in the Evidence Register.
 - Likelihood (the odds) and confidence (how sure) read as two separate axes, never merged.
 - The dossier carries a populated, honest gaps section — a named gap, not a plausible fill-in.
@@ -50,7 +73,7 @@ honest gaps line.
 
 ## Where it fits
 
-BLACK SEA is a reach-for-it-anytime standalone: one skill that routes a whole case end to end
-(tasking → lane → collection → tradecraft → dossier → delivery). The depth lives in
-`skills/black-sea/references/` behind context pointers; the vocabulary that keeps runs predictable
-lives in `CONTEXT.md` and the skill's `glossary.md`.
+BLACK SEA is a reach-for-it-anytime unit: an orchestrator that runs a whole case end to end
+(**WAYPOINT** framing → approved Collection Plan → operative dispatch → collection → tradecraft →
+dossier → delivery). The depth lives in `skills/black-sea/references/` behind context pointers; the
+vocabulary that keeps runs predictable lives in `CONTEXT.md` and the skill's `glossary.md`.

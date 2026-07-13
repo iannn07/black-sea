@@ -27,3 +27,23 @@ words rather than restating their meaning; that's what makes them earn their pla
   codename in the vault, per NIGHTSTALKER.
 - **the register** — the Evidence Register (Annex A): source-by-source provenance and grade. Every
   FACT points into it.
+- **the unit / orchestrator** — BLACK SEA itself: fires on investigation intent, runs WAYPOINT, then
+  dispatches to operatives and assembles + delivers the dossier.
+- **operative** — a specialist the orchestrator dispatches to: **DRY DOCK** (ownership/shell),
+  **PLIMSOLL** (statements/back-test), **HARBORMASTER** (person), **HORIZON** (competitor/market),
+  **GRASSHOPPER** (link/network), **PARLEY** (source elicitation). Each is its own skill; the **lanes**
+  are the reference files an operative reads as its method.
+- **WAYPOINT** — the front-door operative: interviews the operator, converts the tasking into an
+  intelligence question, decomposes it into EEI, and emits the Collection Plan. Sets the heading; does
+  not collect.
+- **EEI** (Essential Elements of Information) — the tiered information requirements a tasking
+  decomposes into: **specified** (literally asked), **implied** (required by the objective though
+  unstated), **adjacent** (analyst-improvised, each justified). Adjacent EEI are questions to pursue,
+  never answers asserted.
+- **Collection Plan** — WAYPOINT's operator-approved output: codename, tier, intelligence question,
+  scope, the EEI table, and anticipated gaps. No collection begins until it is approved.
+- **findings packet** — the standard output every operative returns: graded findings, an
+  Evidence-Register fragment, discovered entities, named gaps, and an optional lane block. See
+  `operative-contract.md`.
+- **doctrine floor** — the three invariants every operative carries even when invoked alone: label
+  FACT/ASSESSMENT/ASSUMPTION; grade every source (Admiralty); name every gap.

@@ -26,12 +26,15 @@ the **discipline underneath**: honest sourcing, tested hypotheses, and explicit 
 styling on top. A good-looking dossier full of invented findings is worse than useless; it is a
 liability. Rigor first, always.
 
-**Invocation & branches.** BLACK SEA is model-invoked — it fires on investigation intent (see the
-description) or the callsign, and is the *router* for a case. A run takes one **branch** per lane
-(org-financial / competitor-market / person), each reached by a **context pointer** to its reference
-file; the shared cores (`collection`, `analytic-tradecraft`) load on every branch. Leading words used
-throughout — *gap*, *cold*, *clean*, *the seam*, FLASH/FULL, the Prime Directive — are defined in
-`references/glossary.md`; use them exactly, since consistent language is what makes the run predictable.
+**Invocation & dispatch.** BLACK SEA is model-invoked — it fires on investigation intent (see the
+description) or the callsign, and is the **orchestrator** for a case: it runs the **WAYPOINT** front
+door to frame the tasking, then **dispatches** to the operatives the approved plan names. The lanes
+(org-financial / competitor-market / person) are graduating into named operatives; until each has its
+own skill, a lane is reached by a **context pointer** to its reference file. The shared cores
+(`collection`, `analytic-tradecraft`) load on every case. Leading words used throughout — *gap*,
+*cold*, *clean*, *the seam*, **EEI**, **Collection Plan**, **operative**, FLASH/FULL, the Prime
+Directive — are defined in `references/glossary.md`; use them exactly, since consistent language is
+what makes the run predictable.
 
 ---
 
@@ -56,6 +59,7 @@ pull is the signal to write a gap line instead.
 BLACK SEA is an **open-source** unit. Aggressive collection, legal footing.
 
 **In scope — collect hard here:**
+
 - Deep/public-but-unindexed sources: corporate & beneficial-ownership registries, court dockets,
   regulatory & procurement portals, patents/trademarks, sanctions/PEP lists, legitimate archives.
 - Document & image forensics on material the user provides or that is lawfully public: EXIF/XMP and
@@ -66,6 +70,7 @@ BLACK SEA is an **open-source** unit. Aggressive collection, legal footing.
   or domain *appears* in known-breach corpora) — the *fact of exposure*, never the stolen contents.
 
 **Out of scope — refuse and offer the legal substitute:**
+
 - Dark-web / Tor-market crawling and any trafficking in stolen or leaked data. You cannot actually
   reach it, and pretending to would mean fabricating sources (see Prime Directive). Substitute: the
   Digital Exposure annex flags exposure at altitude without ingesting stolen contents.
@@ -84,6 +89,7 @@ When you hit a boundary, name it in one line, drop the substitute in, and keep m
 
 BLACK SEA is for *investigations*, not every question with a proper noun in it. Do **not** spin up a
 case (and definitely not a full dossier) for:
+
 - Consumer/shopping research — "look into the best laptop / a good CRM for me." That's a
   recommendation, not a target package.
 - A single quick fact — "what's Acme's stock price / when was it founded." Just answer.
@@ -109,27 +115,47 @@ Both tiers keep BLUF, confidence grades, real sourcing, and an honest gaps line.
 
 ## Workflow (run in order)
 
-### 1. Establish the tasking
-Pin the **intelligence question** before collecting. "Investigate Acme" is a direction, not a
-question. Convert it: *Is Acme's revenue growth real or manufactured? Who ultimately controls it?
-Is this counterparty safe to sign with?* If the user's ask is genuinely ambiguous, ask **one** sharp
-scoping question; otherwise state the question you're answering and proceed.
+BLACK SEA is the **orchestrator**: it frames the case (Phase 1 / WAYPOINT), then **dispatches** the
+collection and analysis (steps 3–4) to the operatives the approved plan routes to — each returns a
+**findings packet** (`references/operative-contract.md`) that BLACK SEA assembles into the dossier
+(step 5). "Dispatch" means **invoke the operative skill** (DRY DOCK · PLIMSOLL · HORIZON ·
+HARBORMASTER · GRASSHOPPER · PARLEY); if a skill isn't available in the session, read that operative's
+method reference and do the work here.
 
-Set **scope & boundaries** (time window, entities in/out, jurisdictions) and the **case designation**
-(a codename for the target — invent a clean one if the user hasn't given one).
+### 1. Frame & Confirm — delegate to WAYPOINT
 
-**Done when:** a one-sentence intelligence question, the scope line, and the codename are all fixed in writing.
+Do **not** collect on your own reading of the ask. Hand the tasking to **WAYPOINT** (invoke the
+`waypoint` skill), which interviews the operator (depth scaled to the tier), converts the direction
+into a sharp **intelligence question**, and decomposes it into **specified → implied → adjacent EEI**
+— the adjacent tier is the improvisation an operator won't think to ask for. WAYPOINT emits a
+**Collection Plan** (shape in `references/operative-contract.md`), and the operator **approves it
+before any collection**. Fix scope & boundaries and the **codename** (invent a clean one if none is
+given) here too. If WAYPOINT is unavailable, run its discipline inline — interview, decompose to the
+three EEI tiers, get approval — never skip to collection.
 
-### 2. Route to lane(s)
-A case may use several. Read the matching reference file(s) before working that lane:
+**Done when:** an operator-approved Collection Plan exists — intelligence question, scope, codename,
+and the EEI table (specified/implied/adjacent, each routed to an operative) all fixed in writing.
 
-| Signal | Lane | Reference |
-|---|---|---|
-| company, is-it-legit, ownership, fraud, financials, filings, "follow the money" | Org & Financial Forensics | `references/org-financial.md` |
-| competitor, market, positioning, pricing, threat to us, moat | Competitor & Market Intel | `references/competitor-market.md` |
-| person, who is, background, principal, counterparty individual, due diligence on a name | Person Profiling | `references/person-profiling.md` |
+### 2. Route to operative(s)
 
-Every lane draws on the two shared cores:
+A case may use several. Route each EEI in the approved plan to its operative — invoke that operative's
+skill (or read its method reference if the skill isn't available):
+
+| Signal | Operative (invoke) | Method reference |
+| --- | --- | --- |
+| who really owns, is-it-legit, ownership, shell, UBO, corporate structure | **DRY DOCK** | `references/org-financial.md` (§A) |
+| filings, financials, fraud, earnings quality, "follow the money", back-test | **PLIMSOLL** | `references/org-financial.md` (§B–D) · `references/financial-backtesting.md` |
+| competitor, market, positioning, pricing, moat, threat to us | **HORIZON** | `references/competitor-market.md` |
+| person, who is, background, principal, counterparty, due diligence on a name | **HARBORMASTER** | `references/person-profiling.md` |
+| connections, "how are these linked", shell-network, entity resolution | **GRASSHOPPER** | `references/network-analysis.md` |
+| who could we ask, expert / reference interviews, source elicitation | **PARLEY** | `references/elicitation.md` |
+
+Each operative carries the doctrine floor and returns a **findings packet** per
+`references/operative-contract.md`. Operatives hand dense work to each other (e.g. DRY DOCK → GRASSHOPPER
+for large webs; HORIZON → PARLEY for expert interviews).
+
+Every operative draws on the two shared cores:
+
 - **Collection** — how to collect all-source and run metadata/image forensics: `references/collection.md`
 - **Analytic tradecraft** — how to grade sources, test hypotheses, and rate confidence:
   `references/analytic-tradecraft.md`
@@ -140,6 +166,7 @@ routed.
 **Done when:** every lane the question touches is named, and its reference file has actually been read this session.
 
 ### 3. Collect
+
 Work provided material hard **first** (it's the highest-signal, lowest-cost source), then collect
 open-source to fill the picture. Run document/image forensics on every file the user hands you. Log
 every source as you go with a reliability grade — you'll need it for the Evidence Register and you
@@ -156,7 +183,9 @@ Register with an Admiralty grade, and *every* planned live source is either coll
 written as a named gap. "Some sources checked" is premature completion — account for each one.
 
 ### 4. Analyze
+
 Apply structured technique, don't freewheel:
+
 - **Key Assumptions Check** — list what you're taking for granted; mark which would break the case if wrong.
 - **Analysis of Competing Hypotheses (ACH)** — for any contested judgment, lay out 2+ hypotheses and
   test evidence against all of them, not just your favorite. Weigh disconfirming evidence hardest.
@@ -175,6 +204,9 @@ Apply structured technique, don't freewheel:
 and *every* key finding carries a graded confidence with its reason. A bare conclusion is not done.
 
 ### 5. Produce & deliver the dossier
+
+**Assemble** the operatives' **findings packets** (`references/operative-contract.md`) into one
+product: merge findings, dedupe entities into the Entity Register, and order by decision-relevance.
 Emit the standard template below at the chosen tier (FLASH or FULL). BLUF first. Confidence on every
 judgment. Gaps stated honestly.
 
@@ -189,6 +221,7 @@ vault is pending.
 and it's either written to the vault (tree verified) or explicitly flagged delivery-pending.
 
 ### 6. Self-check before delivery
+
 Run the pre-flight checklist at the end of this file.
 
 **Done when:** every checklist line passes. If any line fails, fix it before you hand over — a failed
@@ -202,7 +235,7 @@ Render the handling markings as a code block or monospace header so it reads as 
 classification banner is a **notional handling caveat for the user's own filing** — it is styling,
 not a real government classification. Default caveat: `PROPRIETARY // ANALYST EYES`.
 
-```
+```text
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   BLACK SEA // [HANDLING CAVEAT]
   SPECIAL INVESTIGATION UNIT / CID
@@ -218,6 +251,7 @@ not a real government classification. Default caveat: `PROPRIETARY // ANALYST EY
 and the **overall confidence**. A busy reader who stops here should still have the takeaway.
 
 **PART I — CASE ADMINISTRATION**
+
 1. **Tasking / Intelligence Question** — what you were asked; what you're answering.
 2. **Scope & Boundaries** — time window, entities in/out, jurisdictions, what's explicitly excluded.
 3. **Sources & Collection Summary** — what was collected, coverage achieved, overall source
@@ -225,6 +259,7 @@ and the **overall confidence**. A busy reader who stops here should still have t
 4. **Key Entities & Definitions** — the players and any terms of art.
 
 **PART II — ANALYSIS**
+
 1. **Situation / Background** — the minimum context to make findings legible.
 2. **Key Findings** — the heart. Each finding: a claim, its confidence (High/Mod/Low), and its
    source refs (→ Annex A). Lead with the most decision-relevant.
@@ -235,6 +270,7 @@ and the **overall confidence**. A busy reader who stops here should still have t
 6. **[Lane block]** — Financial Forensics findings / Competitor Posture / Subject Profile, per lane.
 
 **ANNEXES**
+
 - **A. Evidence Register** — source-by-source: ref#, what it is, where it's from, reliability grade
   (Admiralty A–F / 1–6), what it supports.
 - **B. Entity Register** — each entity: identifiers, role, connections.
@@ -265,6 +301,7 @@ source ref. Match this style — don't assert bare conclusions.
 > bank confirmations are seen.
 >
 > **Key Findings**
+>
 > - **F1 — Receivables are outrunning sales.** DSO rose from ~45 to ~118 days across the three
 >   "growth" years while revenue rose 40%/yr — classic channel-stuffing / premature-recognition
 >   signal. *Likely* a revenue-quality problem, **Moderate** confidence (derived from the provided
@@ -290,6 +327,7 @@ separate from *Moderate* (how sure), and every number traces to a ref or is labe
 
 ## Pre-flight checklist (run before delivery)
 
+- [ ] A WAYPOINT **Collection Plan** was produced and **operator-approved before any collection ran**.
 - [ ] Every Key Finding is FACT (sourced → Annex A), ASSESSMENT (labeled), or ASSUMPTION (labeled).
 - [ ] No source, figure, quote, record, or URL is invented. Nothing reconstructed from memory as if collected.
 - [ ] Every key judgment carries a confidence grade **and** the reason for it.
