@@ -1,5 +1,23 @@
 # black-sea-skills
 
+## 3.0.0
+
+### Major Changes
+
+- Rebuild BLACK SEA from a single skill into a multi-skill **unit** — an orchestrator, a shared
+  doctrine core, and named operatives — and add the **WAYPOINT** front door. Every case now opens by
+  framing before collecting: WAYPOINT interviews the operator (depth scaled to the tier, wrapping the
+  `interview-me` skill on FULL cases), converts the tasking into a sharp intelligence question, and
+  decomposes it into **specified / implied / adjacent** EEI — surfacing the adjacent lines an operator
+  wouldn't think to ask for — then emits a **Collection Plan** the operator approves before any
+  collection runs. Adds a divergent *Requirements Expansion / Anticipatory EEI* technique to the
+  analytic-tradecraft core with an "anticipating what to collect is analysis, not fabrication"
+  carve-out, and an **operative contract** (the Collection Plan and the findings packet) that future
+  operatives plug into. The orchestrator (`skills/black-sea/`) now dispatches to operatives; the three
+  lanes remain reference files until each graduates into its own skill. Breaking: the unit runs
+  WAYPOINT first (no more collecting straight from the raw ask), and the repository is a multi-skill
+  plugin rather than a single skill.
+
 ## 2.2.0
 
 ### Minor Changes

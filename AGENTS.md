@@ -6,9 +6,11 @@ kept in sync and `CLAUDE.md` is the fuller copy.
 
 ## What this repo is
 
-One skill: **BLACK SEA** (Special Investigation Unit / CID) — an all-source investigative analyst that
-produces standardized, confidence-graded intelligence dossiers on organizations and people. The skill
-lives at `skills/black-sea/` (`SKILL.md` + `references/` + `scripts/`).
+The **BLACK SEA** unit (Special Investigation Unit / CID) — a multi-skill plugin (orchestrator +
+shared doctrine core + named operatives) that produces standardized, confidence-graded intelligence
+dossiers on organizations and people. The **orchestrator** lives at `skills/black-sea/`; the
+**WAYPOINT** front door at `skills/waypoint/`. The orchestrator frames a case via WAYPOINT, then
+dispatches to operatives.
 
 ## Non-negotiables
 
@@ -30,4 +32,5 @@ lives at `skills/black-sea/` (`SKILL.md` + `references/` + `scripts/`).
 - `CLAUDE.md` — full repo instructions, structure, and conventions
 - `CONTRIBUTING.md` — the compliance guard and the edit / versioning workflow
 - `CONTEXT.md` — the domain vocabulary
-- `skills/black-sea/SKILL.md` — the skill spine; `references/` for lane and core detail
+- `skills/black-sea/SKILL.md` — the orchestrator spine; `skills/waypoint/SKILL.md` — the front door;
+  `skills/black-sea/references/` for lane and core detail (incl. `operative-contract.md`)

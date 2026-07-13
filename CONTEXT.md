@@ -1,10 +1,11 @@
 # BLACK SEA
 
-The ubiquitous language of the BLACK SEA skill — a Special Investigation Unit / CID that takes a
-target (an organization or a person) and produces a standardized, confidence-graded intelligence
-dossier. This document exists so the skill, its references, and anyone editing them speak one
-language; the leading words here are used *exactly* as defined. The in-skill copy is
-`skills/black-sea/references/glossary.md` — keep the two in sync.
+The ubiquitous language of BLACK SEA — a Special Investigation Unit / CID (a multi-skill plugin: an
+orchestrator + a shared doctrine core + named operatives) that takes a target (an organization or a
+person) and produces a standardized, confidence-graded intelligence dossier. This document exists so
+the unit's skills, their references, and anyone editing them speak one language; the leading words
+here are used *exactly* as defined. The in-skill copy is `skills/black-sea/references/glossary.md` —
+keep the two in sync.
 
 ## Language
 
@@ -23,16 +24,56 @@ The single sharp question a case answers, fixed in writing before collection. "I
 direction; "Is Acme's revenue growth real or manufactured?" is a tasking.
 _Avoid_: prompt, ask, request
 
-**Lane**:
+**Lane** (graduating into **operatives**):
 One of the three investigation branches — **org & financial forensics**, **competitor & market
 intel**, **person profiling** — each reached by a context pointer to its reference file. A case may
-run several.
+run several. Lanes are graduating into named **operatives**; until each has its own skill, the lane
+*is* its reference file.
 _Avoid_: mode, track, module
 
 **Shared core**:
-The two references every lane draws on — **collection** and **analytic tradecraft**. Read on
-essentially every case.
+The references every operative draws on — **collection**, **analytic tradecraft**, and the
+**operative-contract**. Read on essentially every case.
 _Avoid_: common library, base
+
+**Orchestrator** (the **unit**):
+BLACK SEA itself — fires on investigation intent, runs **WAYPOINT**, dispatches each **EEI** to an
+**operative**, then assembles the **findings packets** into the dossier and delivers it.
+_Avoid_: router, dispatcher (too narrow — it also assembles and delivers)
+
+**Operative**:
+A specialist the orchestrator dispatches to — **DRY DOCK** (ownership/shell), **PLIMSOLL**
+(statements/back-test), **HARBORMASTER** (person), **HORIZON** (competitor/market), **GRASSHOPPER**
+(link/network), **PARLEY** (source elicitation). Each takes a slice of the **Collection Plan** and
+returns a **findings packet**.
+_Avoid_: agent, module, plugin
+
+**WAYPOINT**:
+The front-door operative that opens every case — interviews the operator, fixes the **intelligence
+question**, decomposes it into **EEI**, and emits the **Collection Plan**. Sets the heading; does not
+collect.
+_Avoid_: intake bot, wizard
+
+**EEI** (Essential Elements of Information):
+The tiered information requirements a **tasking** decomposes into — **specified** (literally asked),
+**implied** (required by the objective though unstated), **adjacent** (analyst-improvised, each
+justified with a one-line reason). Adjacent EEI are questions to pursue, never answers asserted.
+_Avoid_: requirements, questions (too generic)
+
+**Collection Plan**:
+WAYPOINT's operator-approved output — codename, tier, intelligence question, scope, the EEI table,
+anticipated gaps. **No collection begins until it is approved.**
+_Avoid_: brief, scope doc
+
+**findings packet**:
+The standard output every **operative** returns — graded findings, an Evidence-Register fragment,
+discovered entities, named gaps, an optional lane block. BLACK SEA assembles packets into the dossier.
+_Avoid_: report, results
+
+**doctrine floor**:
+The three invariants every operative carries even when invoked alone — label
+FACT/ASSESSMENT/ASSUMPTION, grade every source (Admiralty), name every gap.
+_Avoid_: basics, minimum
 
 **Tier**:
 The size of the product — **FLASH** (a compressed single-screen read) or **FULL** (the complete
@@ -81,7 +122,8 @@ explanation is always a required hypothesis.
 
 ## Relationships
 
-- A **case** answers one **tasking**, routes to one or more **lanes**, and every lane draws on the two **shared cores**.
+- A **case** opens at **WAYPOINT**, which fixes one **tasking** and emits the operator-approved **Collection Plan**.
+- The **orchestrator** dispatches each **EEI** in the plan to an **operative**; every operative draws on the **shared cores** and returns a **findings packet**.
 - A case produces one **dossier** at one **tier** (FLASH or FULL), delivered under a **codename**.
 - Every **FACT** in a dossier points into the **Evidence Register**; every register entry carries an **Admiralty grade**.
 - Every claim is a **FACT**, an **ASSESSMENT**, or an **ASSUMPTION**; anything unobtainable is a **gap**.

@@ -33,8 +33,8 @@ release is **one** source, not ten.
 
 ## 3. Confidence & words of estimative probability (ICD 203 style)
 
-Rate each key judgment **High / Moderate / Low** confidence, and state *why* (quality + corroboration
-+ gaps). Keep likelihood language and confidence separate — they're different axes.
+Rate each key judgment **High / Moderate / Low** confidence, and state *why* (quality + corroboration +
+gaps). Keep likelihood language and confidence separate — they're different axes.
 
 Likelihood ladder (use consistently, avoid vague "possibly"):
 almost no chance · very unlikely · unlikely · roughly even chance · likely · very likely · almost certain.
@@ -72,3 +72,29 @@ The antidote to confirmation bias. For any contested conclusion:
 
 When you don't have a number, say so and bound it ("between X and Y, based on Z") rather than
 inventing precision. A defensible range beats a fabricated point every time.
+
+## 8. Requirements Expansion / Anticipatory EEI (the divergent pass)
+
+Every other technique here is *convergent* — it tests what you already hold. This one is
+*generative*: before you narrow a tasking into a collection list, deliberately **widen** the
+information space so the dossier serves the operator's real decision, not just the literal words of
+the ask. This is how WAYPOINT builds the **adjacent** EEI tier.
+
+Run three passes on the confirmed intelligence question:
+
+1. **Domain-expert lens.** "What would a seasoned analyst in *this* area also want to know that the
+   operator didn't name?" Reason from the objective, not the wording.
+2. **Second-order / so-what → then-what.** For each specified item, ask what it *depends on* and what
+   it *implies* — the entities, records, and conditions one step out.
+3. **Pre-mortem.** "If this dossier misses the mark, what did we fail to look at?" Turn each failure
+   into an EEI.
+
+Then narrow: keep the adjacent items that materially serve the decision, each with a one-line
+justification; note and drop the rest. Surface the survivors to the operator for approval — you
+propose the widened net; the operator sets its final size.
+
+**The carve-out (do not skip this):** **anticipating what to collect is analysis, not fabrication.**
+The Prime Directive forbids inventing *facts and sources* — it never forbids *reasoning about what to
+look for*. Adjacent EEI are **questions to pursue, not answers asserted**. The pull to fill in a
+*fact* is still the signal to write a **gap**; the instinct to widen the *collection net* is
+tradecraft. Keep the two apart.

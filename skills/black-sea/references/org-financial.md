@@ -25,6 +25,7 @@ Divergence between reported earnings and cash generation is the classic tell.
 Claude Code: `python3 ${CLAUDE_SKILL_DIR}/scripts/forensics.py <input.json>`; feed the figures as
 JSON, `--schema` prints the input shape) to get M-Score, Altman Z/Z'', Benford, and ratios in one
 pass, then interpret. State assumptions and limits — these are indicators, not verdicts:
+
 - **Beneish M-Score** — likelihood of earnings manipulation from 8 ratios (DSRI, GMI, AQI, SGI,
   DEPI, SGAI, LVGI, TATA). Above ≈ −1.78 warrants scrutiny.
 - **Altman Z-Score** — distress/bankruptcy risk. Low scores flag solvency pressure (a motive).

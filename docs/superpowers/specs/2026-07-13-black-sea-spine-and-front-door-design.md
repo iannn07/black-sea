@@ -13,7 +13,7 @@ BLACK SEA is being rebuilt from **one skill that does everything** into a **mult
 plugin**: a unit orchestrator + a shared doctrine core + a roster of named operatives.
 Callsigns are provisional (rename freely); the function and trigger are load-bearing.
 
-```
+```text
 BLACK SEA  ─ the Unit / orchestrator (entry point + shared doctrine core)
 Front door
   WAYPOINT      operator requirements-elicitation (Frame & Confirm)
@@ -91,6 +91,7 @@ Changes — the workflow becomes a **dispatch** flow:
 6. **Pre-flight**, then **deliver** to the Obsidian vault (unchanged protocol).
 
 Edits:
+
 - Step 1 ("Establish the tasking") is replaced by "**Phase 1 — Frame & Confirm (delegates to
   WAYPOINT)**." The old "ask one sharp question" instruction is removed.
 - The Step 2 routing table gains an **Operative** column (callsign) alongside the existing
@@ -179,7 +180,7 @@ at?"), and the **so-what/then-what** chain. Output feeds WAYPOINT's Adjacent EEI
 
 **Collection Plan** (WAYPOINT output; markdown, lives in the case as an artifact):
 
-```
+```text
 CODENAME · TIER (FLASH/FULL)
 Intelligence question(s)  — the PIR(s), one sentence each
 Scope & boundaries        — time window · entities in/out · jurisdictions · exclusions
