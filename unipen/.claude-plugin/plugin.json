@@ -1,0 +1,7 @@
+{
+  "name": "unipen",
+  "description": "UNIPEN — generates GDS-standard project documentation (Onboarding, Technical Documentation, Release Notes, Code Documentation) into an Obsidian vault, grounded in Diátaxis, C4+ADR, Keep a Changelog+SemVer, and OpenAPI-as-source-of-truth.",
+  "version": "3.0.0",
+  "author": { "name": "Gunawan" },
+  "keywords": ["documentation", "onboarding", "technical-documentation", "changelog", "release-notes", "api-reference", "diataxis", "c4-model", "adr", "gds"]
+}

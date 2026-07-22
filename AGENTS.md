@@ -16,6 +16,13 @@ The repo also ships **BULKHEAD** (`skills/bulkhead/`) — a **distinct** access-
 skill (RBAC / authorization from agency security doctrine). It produces a design, not a dossier; keep
 it separate from the investigation unit.
 
+This repo is also a **two-plugin marketplace**. Alongside `black-sea` (source `.`), it ships
+**UNIPEN** (`unipen/`, source `./unipen`) — a fully independent, separately-installable plugin that
+generates GDS-standard project documentation (Onboarding, Technical Documentation, Release Notes,
+Code Documentation) into an Obsidian vault. UNIPEN is not part of the investigation unit, is never
+dispatched by the orchestrator, and shares zero files with BLACK SEA, BULKHEAD, or the Handover Kit
+standard — installing one plugin never pulls in the other.
+
 ## Non-negotiables
 
 - **Prime Directive — never fabricate.** Every finding traces to a real source or is labeled
@@ -35,6 +42,8 @@ it separate from the investigation unit.
 
 - `CLAUDE.md` — full repo instructions, structure, and conventions
 - `CONTRIBUTING.md` — the compliance guard and the edit / versioning workflow
-- `CONTEXT.md` — the domain vocabulary
+- `CONTEXT.md` — the domain vocabulary (BLACK SEA's — UNIPEN keeps its own terms self-contained)
 - `skills/black-sea/SKILL.md` — the orchestrator spine; `skills/waypoint/SKILL.md` — the front door;
   `skills/black-sea/references/` for lane and core detail (incl. `operative-contract.md`)
+- `unipen/skills/unipen/SKILL.md` — the UNIPEN spine; `unipen/skills/unipen/references/` for the
+  folder structure, document contracts, conventions, and diagram catalog it implements
