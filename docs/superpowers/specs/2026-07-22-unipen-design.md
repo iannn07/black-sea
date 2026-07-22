@@ -89,6 +89,20 @@ plus two additional decisions this repo's structure required:
    brief — the brief assumed a single-plugin context). See below.
 6. **Versioning.** Shared repo version across both plugins for now (see *Repo housekeeping*).
 
+### Additional decisions from the interview-me pass
+
+7. **Intake.** UNIPEN asks a small, fixed set of setup questions before scaffolding — project
+   name / vault destination path, and whether this run is a fresh scaffold or filling gaps in
+   an existing GDS tree. This is not the declined approval-gate ceremony (Decision 3); it's the
+   minimum facts UNIPEN can't infer, the same way BULKHEAD asks "one or two sharp scoping
+   questions" despite having no approval gate either.
+8. **Incremental runs preserve by default.** When a project already has some GDS files, UNIPEN
+   only adds what's missing (new files, RESERVED stubs) — existing files, especially anything
+   already `VERIFIED`, are untouchable unless the operator names a specific file to update.
+9. **Delivery mechanism.** UNIPEN prefers Obsidian MCP tools (`mcp__mcp-obsidian__*`) when
+   available in the session, falling back to plain file writes to the given vault path
+   otherwise — the same dual-path pattern `obsidian-delivery.md` uses for BLACK SEA dossiers.
+
 ---
 
 ## Design
@@ -478,20 +492,28 @@ language, no category headings, leads with impact.
 
 ### 7. UNIPEN's workflow (declined governance gate — Decision 3)
 
-1. **Recon** — scan the target project (stack, existing docs, module list, interface types
+1. **Intake** — ask the fixed, minimal setup questions (Decision 7): project name / vault
+   destination path, and fresh scaffold vs. filling gaps in an existing tree. Not an approval
+   gate — just the facts UNIPEN cannot infer.
+2. **Recon** — scan the target project (stack, existing docs, module list, interface types
    present) to decide which optional branches apply (REST/RPC/Flow under Code Documentation,
-   per-module folders, etc.). Analysis only — no operator approval wait before proceeding.
-2. **Scaffold** — create the full folder tree from `references/folder-structure.md`, writing
-   every file directly, including RESERVED stubs (frontmatter + breadcrumb + `trust: RESERVED`,
-   empty or one-line-placeholder body — created before anything links to them).
-3. **Fill each document type** against its contract in `references/document-contracts.md`,
+   per-module folders, etc.), and, on an incremental run, which files already exist. Analysis
+   only — no operator approval wait before proceeding.
+3. **Scaffold** — create the folder tree from `references/folder-structure.md`. On a fresh
+   project, write every file, including RESERVED stubs (frontmatter + breadcrumb +
+   `trust: RESERVED`, empty or one-line-placeholder body — created before anything links to
+   them). On an incremental run, only create what's missing — existing files are untouchable
+   by default (Decision 8) unless the operator names one to update.
+4. **Fill each document type** against its contract in `references/document-contracts.md`,
    applying `references/conventions.md` (trust ladder, tiering, citation rule, frontmatter,
    breadcrumb, wikilink rules) and `references/diagram-catalog.md`.
-4. **Human-only content** (`OB-05-Ownership-and-Escalation`, tenant specifics in
+5. **Human-only content** (`OB-05-Ownership-and-Escalation`, tenant specifics in
    `TD-05-Multi-Tenancy`) is scaffolded with explicit questions for the project owner, marked
    `PARTIAL`, never fabricated. Unconfirmable content elsewhere is marked
    `UNVERIFIABLE — <detail>. Confirm or abort.` rather than invented.
-5. **Self-check** against the Definition of Done below before declaring the tree complete.
+6. **Deliver** — write via Obsidian MCP tools (`mcp__mcp-obsidian__*`) when available in the
+   session; fall back to plain file writes to the given vault path otherwise (Decision 9).
+7. **Self-check** against the Definition of Done below before declaring the tree complete.
 
 Writes happen directly, in whatever order is efficient — no batch/verify/approve ceremony, no
 formal acceptance test phase.
