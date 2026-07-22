@@ -12,16 +12,17 @@ dossiers on organizations and people. The **orchestrator** lives at `skills/blac
 **WAYPOINT** front door at `skills/waypoint/`. The orchestrator frames a case via WAYPOINT, then
 dispatches to operatives (DRY DOCK, PLIMSOLL, HARBORMASTER, HORIZON, GRASSHOPPER, PARLEY).
 
-The repo also ships **BULKHEAD** (`skills/bulkhead/`) — a **distinct** access-control system-design
-skill (RBAC / authorization from agency security doctrine). It produces a design, not a dossier; keep
-it separate from the investigation unit.
+The repo also ships two **distinct-job** skills, bundled into the same plugin but unrelated to the
+investigation unit:
 
-This repo is also a **two-plugin marketplace**. Alongside `black-sea` (source `.`), it ships
-**UNIPEN** (`unipen/`, source `./unipen`) — a fully independent, separately-installable plugin that
-generates GDS-standard project documentation (Onboarding, Technical Documentation, Release Notes,
-Code Documentation) into an Obsidian vault. UNIPEN is not part of the investigation unit, is never
-dispatched by the orchestrator, and shares zero files with BLACK SEA, BULKHEAD, or the Handover Kit
-standard — installing one plugin never pulls in the other.
+- **BULKHEAD** (`skills/bulkhead/`) — access-control system design (RBAC / authorization from agency
+  security doctrine). Produces a design, not a dossier.
+- **UNIPEN** (`skills/unipen/`) — generates GDS-standard project documentation (Onboarding,
+  Technical Documentation, Release Notes, Code Documentation) into an Obsidian vault. Never
+  dispatched by the orchestrator, shares zero files with BLACK SEA or the Handover Kit standard.
+
+Both install and update together with the rest of `skills/` — this is one plugin, not a
+multi-plugin marketplace; there's no way to install just one skill.
 
 ## Non-negotiables
 
@@ -45,5 +46,5 @@ standard — installing one plugin never pulls in the other.
 - `CONTEXT.md` — the domain vocabulary (BLACK SEA's — UNIPEN keeps its own terms self-contained)
 - `skills/black-sea/SKILL.md` — the orchestrator spine; `skills/waypoint/SKILL.md` — the front door;
   `skills/black-sea/references/` for lane and core detail (incl. `operative-contract.md`)
-- `unipen/skills/unipen/SKILL.md` — the UNIPEN spine; `unipen/skills/unipen/references/` for the
-  folder structure, document contracts, conventions, and diagram catalog it implements
+- `skills/unipen/SKILL.md` — the UNIPEN spine; `skills/unipen/references/` for the folder structure,
+  document contracts, conventions, and diagram catalog it implements

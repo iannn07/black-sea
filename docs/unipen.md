@@ -23,25 +23,26 @@ Diátaxis is the organizing logic across all four: Onboarding = tutorial (doing)
 Documentation = reference (looking up), Technical Documentation = reference + explanation
 (understanding why), Release Notes = the time-sliced diff of all three.
 
-## Also in this marketplace
+## Also in this plugin
 
-- **BLACK SEA** — the investigation unit this repo also ships (`skills/black-sea/` +
+- **BLACK SEA** — the investigation unit this repo's plugin also ships (`skills/black-sea/` +
   operatives). A completely separate job — investigation dossiers, not documentation. UNIPEN
   shares no files, conventions, or vocabulary with it.
+- **BULKHEAD** — access-control system design (`skills/bulkhead/`). Also unrelated.
 
 ## When to reach for it
 
-- **Invocation.** Type `/unipen` (or `/unipen:unipen` under the plugin), or the agent reaches
-  for it automatically on "document this project", "write onboarding for X", "generate a
-  changelog", "API reference docs", "ADR for this decision", "runbook for this incident", or any
-  ask that's really "make this codebase legible to a newcomer or an agent with zero context."
+- **Invocation.** Type `/black-sea:unipen`, or the agent reaches for it automatically on
+  "document this project", "write onboarding for X", "generate a changelog", "API reference
+  docs", "ADR for this decision", "runbook for this incident", or any ask that's really "make
+  this codebase legible to a newcomer or an agent with zero context."
 - **Not for:** investigating an organization or a person — that's BLACK SEA.
 
-## Installing independently
+## Installation
 
-This repo is a two-plugin marketplace. `black-sea` and `unipen` install independently — adding
-this marketplace and installing only `unipen` gets you the documentation generator without any
-of the investigation unit's skills, and vice versa.
+UNIPEN is bundled into the single `black-sea` plugin, alongside the investigation unit and
+BULKHEAD — there's no separate install for it. Installing the `black-sea` plugin gets you all
+of it; there's no way to pick up just UNIPEN on its own.
 
 ## Prerequisites
 
@@ -65,6 +66,6 @@ of the investigation unit's skills, and vice versa.
 ## Where it fits
 
 UNIPEN is a reach-for-it-anytime documentation generator: intake → recon → scaffold → fill →
-human-only content → deliver → self-check. The depth lives in
-`unipen/skills/unipen/references/` — folder structure, document contracts, conventions, and the
-diagram catalog, each loaded as the workflow needs it.
+human-only content → deliver → self-check. The depth lives in `skills/unipen/references/` —
+folder structure, document contracts, conventions, and the diagram catalog, each loaded as the
+workflow needs it.

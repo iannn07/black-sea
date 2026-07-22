@@ -1,5 +1,14 @@
 # Spec — UNIPEN: GDS Documentation-Generation Skill (independently installable)
 
+> **Superseded, 2026-07-22 (same day).** The independent-installability architecture below (the
+> sibling `unipen/` plugin folder, the second `marketplace.json` entry) was built, then
+> deliberately reversed: UNIPEN was folded into the single `black-sea` plugin at
+> `skills/unipen/`, bundled alongside BULKHEAD, with no separate plugin/marketplace entry. The
+> workflow, conventions, folder-structure, and document-contracts content below are all still
+> accurate and unchanged — only the *installability* section (Design §1) no longer reflects
+> reality. Kept here as the historical record of why the sibling-plugin pattern exists and how it
+> works, for the next skill that might actually need it.
+
 - **Date:** 2026-07-22
 - **Status:** Approved design, pending interview-me pass + skill-creator build
 - **Version target:** repo stays on a single shared version (currently 3.0.0); this ships as

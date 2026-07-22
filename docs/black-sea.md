@@ -30,6 +30,10 @@ written down as a named gap rather than filled in.
   need-to-know, compartmentation, least privilege, separation of duties, role hierarchy — grounded in
   published models (NIST RBAC/ABAC, Bell-LaPadula, Biba, Clark-Wilson). It produces a *design*, not a
   dossier.
+- **UNIPEN** — a distinct skill (also not part of the investigation unit) that generates
+  GDS-standard project documentation (Onboarding, Technical Documentation, Release Notes, Code
+  Documentation) into an Obsidian vault, grounded in Diátaxis, C4+ADR, Keep a Changelog+SemVer, and
+  OpenAPI-as-source-of-truth. See `docs/unipen.md`.
 
 ## When to reach for it
 

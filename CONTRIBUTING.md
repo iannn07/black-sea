@@ -32,21 +32,21 @@ skills/black-sea/
   SKILL.md              # the spine (routing, tiers, workflow, dossier template, failure modes)
   references/           # lane files + shared cores (collection, analytic-tradecraft, ...)
   scripts/forensics.py  # financial-forensics calculator — Python standard library only, no network
-unipen/                 # UNIPEN plugin root (source "./unipen") — independently installable
-  .claude-plugin/plugin.json
-  skills/unipen/
-    SKILL.md            # the spine
-    references/         # folder-structure, document-contracts, conventions, diagram-catalog
+skills/bulkhead/        # BULKHEAD — access-control system design (a DISTINCT job, not investigation)
+skills/unipen/          # UNIPEN — GDS project-documentation generation (a DISTINCT job, not investigation)
+  SKILL.md              # the spine
+  references/           # folder-structure, document-contracts, conventions, diagram-catalog
 docs/black-sea.md       # human-facing overview (BLACK SEA)
 docs/unipen.md          # human-facing overview (UNIPEN)
 CONTEXT.md              # the ubiquitous language (BLACK SEA's — not shared with UNIPEN)
 CLAUDE.md · AGENTS.md   # agent instructions
 ```
 
-This repo is a **two-plugin marketplace** (`.claude-plugin/marketplace.json` lists both
-`black-sea` and `unipen`). They are unrelated jobs (investigation dossiers vs. documentation
-generation) and share no files — never add a cross-reference or shared reference file between
-`skills/` and `unipen/`.
+This repo is a **single-plugin** repo (`.claude-plugin/marketplace.json` lists only `black-sea`).
+BULKHEAD and UNIPEN are unrelated jobs (investigation dossiers vs. access-control design vs.
+documentation generation) bundled into the same plugin — they share no files with BLACK SEA or each
+other; never add a cross-reference or shared reference file between `skills/black-sea/`,
+`skills/bulkhead/`, and `skills/unipen/`.
 
 ## Editing the skill
 
@@ -73,9 +73,7 @@ This repo versions with [changesets](https://github.com/changesets/changesets).
    entry in plain language (what changed and why, from the reader's point of view).
 3. When cutting a release, `npx changeset version` folds pending entries into `CHANGELOG.md` and bumps
    `package.json`. Keep the version in lockstep across `package.json`, `.claude-plugin/plugin.json`,
-   both entries in `.claude-plugin/marketplace.json`'s `"plugins"` array, and
-   `unipen/.claude-plugin/plugin.json`. Both plugins share one version for now — UNIPEN does not have
-   an independent version lineage even though it installs independently.
+   and `.claude-plugin/marketplace.json`.
 
 `major` = a breaking change to how the skill is invoked or behaves; `minor` = new capability;
 `patch` = a fix or a docs sharpening.
